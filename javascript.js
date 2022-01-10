@@ -44,6 +44,12 @@ generateEl.addEventListener('click', () =>{
     );
 });
 
+//6) Copy password to clipboard
+
+clipboardEl.addEventListener('click', () => {
+    
+})
+
 // 5) Genrate Password Function
 function generatePassword(lower, upper, number, symbol, length) {
     //1. init password var
@@ -61,12 +67,40 @@ function generatePassword(lower, upper, number, symbol, length) {
     //filer loops through each item, and based on true or false, will take out = flase
     const typesArr = [{lower}, {upper}, {number}, {symbol}].filter
     //get value of true or false, then pass in ITEM which is an array
-    //if false, or unchecked it should be filtered out of the array
+    //if false, or unchecked it should be filtered out of the array starting with 0
     (item => Object.values(item)[0]
     );
 
     //Which are true and false in the array
     console.log('typesArr: ', typesArr)
+
+    //if nothing checked, return nothing
+    if(typesCount === 0) {
+        return '';
+    }
+
+    // number 3
+    //generate different characters and call generator function for each type
+    //int by number of checked boxes (i+=typescount)
+    // part 1) this will do one of each type, so we need to slice it down for length selected (website) under 4 length, otherwise length of 1 will produce 4
+    for(let i=0; i<length; i+=typesCount) {
+        //loop through each type of array
+        typesArr.forEach(type => {
+            //call object of const randomFunc above keys
+            const funcName = Object.keys(type)[0]
+            //shows it looping through and pulling out random items from each type
+            //console.log('funcName: ', funcName);
+
+            //will add to open string 'let' above
+            generatePassword += randomFunc[funcName]();
+        });
+    }
+    //part 2) adding slice 0(starting at beginning) and use the length inputted
+    //console.log - to test below
+    const finalPassword = (generatePassword.slice(0, length));
+
+    //THE END!!  This will show up in the box   
+    return finalPassword;
 }
 
 // 1) generator functions www.net-comber.com/charset.html
