@@ -45,6 +45,22 @@ generateEl.addEventListener('click', () =>{
 });
 
 // 5) Genrate Password Function
+function generatePassword(lower, upper, number, symbol, length) {
+    //1. init password var
+    //2. filter out unchecked types
+    //3. loop over the length & call generator function for each type
+    //4. add final password to password Var and return it so it's put into resultEl.innerText
+
+    let generatePassword = '';
+
+    const typesCount = lower + upper + number + symbol;
+    //checking what has been checked/selected in boxes
+    console.log('typesCount: ', typesCount);
+
+    const typesArr = [lower, upper, number, symbol];
+    //Which are true and false in the array
+    console.log('typesArr: ', typesArr)
+}
 
 // 1) generator functions www.net-comber.com/charset.html
 
