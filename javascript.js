@@ -57,7 +57,14 @@ function generatePassword(lower, upper, number, symbol, length) {
     //checking what has been checked/selected in boxes
     console.log('typesCount: ', typesCount);
 
-    const typesArr = [lower, upper, number, symbol];
+    //adding {} gives a name to the boolean/ objects
+    //filer loops through each item, and based on true or false, will take out = flase
+    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter
+    //get value of true or false, then pass in ITEM which is an array
+    //if false, or unchecked it should be filtered out of the array
+    (item => Object.values(item)[0]
+    );
+
     //Which are true and false in the array
     console.log('typesArr: ', typesArr)
 }
