@@ -44,7 +44,7 @@ generateEl.addEventListener('click', () =>{
     );
 });
 
-//6) Copy password to clipboard
+//6) Copy password to clipboard (FINAL STEP)
 
 clipboardEl.addEventListener('click', () => {
     const textarea = document.createElement('textarea');
