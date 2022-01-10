@@ -47,8 +47,23 @@ generateEl.addEventListener('click', () =>{
 //6) Copy password to clipboard
 
 clipboardEl.addEventListener('click', () => {
-    
-})
+    const textarea = document.createElement('textarea');
+    const password = result.innerText;
+
+    if(!password) {
+        return;
+    }
+
+    textarea.value = password;
+    //append child puts it in the body
+    document.body.appendChild(textarea);
+    textarea.select();
+    //copy to clipboard
+    document.execCommand('copy');
+    //remove text area after
+    textarea.remove();
+    alert('password copied to clipboard!');
+});
 
 // 5) Genrate Password Function
 function generatePassword(lower, upper, number, symbol, length) {
